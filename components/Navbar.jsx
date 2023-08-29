@@ -38,10 +38,11 @@ Workout Plan</Link>
     font-bold hover:text-blue-600 transition-colors">
       <Link href="#Meal_Plan">Meal Plan</Link>
     </li>
-    <button className="px-3 py-3 rounded-xl
+   
+  </ul>
+   <button className="px-3 py-3 rounded-xl
      border-white border  lg:block hidden bg-blue-600
    v4"> <p className=" text-white  font-bold ">Support</p></button>
-  </ul>
 <Icons/>
 
 </div>
