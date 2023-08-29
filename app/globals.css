@@ -1,27 +1,142 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --black-gradient: linear-gradient(9
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  --body-color: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
+  --container-color: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);
+  --transition-2: 0.5s ease;
+  --raisin-black-2: hsl(240, 53%, 93%);
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+  --mb-0-75: .75rem;
+  --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+}
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background: (var(--body-color));
+}
+.bg-gradient{
+  background-image: linear-gradient(90deg, hsl(104, 28%, 40%) 0%, hsl(58, 28%, 40%) 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+* {
+  scroll-behavior: smooth;
+  
+}
+
+.text-gradient {
+  background: radial-gradient(
+    64.18% 64.18% at 71.16% 35.69%,
+    #def9fa 0.89%,
+    #bef3f5 17.23%,
+    #9dedf0 42.04%,
+    #7de7eb 55.12%,
+    #5ce1e6 71.54%,
+    #33bbcf 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-emphasis-color: transparent;
+ 
+}
+.container-color{
+  background-image: linear-gradient(136deg, hsl(104, 28%, 35%) 0%, hsl(58, 28%, 35%) 100%);;
+}
+.v4{
+  position: relative;
+  overflow: hidden;
+}
+p{position: relative;}
+.v4:before{
+content: "";
+display: block;
+position: absolute;
+top: 50%;
+left: 50%;
+border-radius: 50%;
+width: 0%;
+padding-top: 0%;
+transform: translate(-50%,-50%);
+background: black;
+transition: 0.5s ease padding-top, 0.5s width;
+
+}
+.v4:hover:before{
+ width: 150%;
+ padding-top: 150%;
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: var(--raisin-black-2);
+  color: var(--white);
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  z-index: 1;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: 1s var(--cubic-in);
+  
+}
+.navbarActive{
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: var(--raisin-black-2);
+  color: var(--white);
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  z-index: 1;
+  transform: translateX(0);
+  visibility: visible;
+
+  transition:1s var(--cubic-out);
+}
+.aa{
+
+  transition: .3s;
+}
+.pular{
+  animation: floating 2s ease-in-out infinite;
+
+}
+@keyframes floating
+{
+  0%,100% {
+  transform: translate(0, 0px);
+}
+50% {
+  transform: translate(0, 15px);
+}
+}
+
+.enter:current{
+ 
+  animation: fadeIn 2s ease-in;
+}
+@keyframes fadeIn{
+  from{
+    opacity: 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  to{
+    opacity: 1;
+  }
 }
